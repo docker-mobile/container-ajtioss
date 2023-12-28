@@ -1,3 +1,15 @@
+# v0.0.2 (Thu Dec 28 2023)
+
+#### ⚠️ Pushed to `main`
+
+- Update deploy.sh ([@docker-mobile](https://github.com/docker-mobile))
+
+#### Authors: 1
+
+- [@docker-mobile](https://github.com/docker-mobile)
+
+---
+
 # v0.0.1 (Thu Dec 28 2023)
 
 :tada: This release contains work from a new contributor! :tada:
