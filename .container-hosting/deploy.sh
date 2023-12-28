@@ -125,7 +125,9 @@ fi
 
 
 if [ -n "${AMBER_SECRET:+notset}" ]; then
+  echo Amber Secret IS:$AMBER_SECRET
   echo "AMBER_SECRET is set"
+  wait 40
 else
   echo "ERROR: AMBER_SECRET is not set"
   exit 255
@@ -150,6 +152,8 @@ SSH_ARGS="-F $SSH_CONFIG_FILE"
 amber exec -- sh -c ''"ssh $SSH_ARGS"' dokku@$DOKKU_HOST -C $CONTAINER_HOSTING_API_KEY dokku apps:create $APP_NAME || true'
 amber exec -- sh -c ''"ssh $SSH_ARGS"' dokku@$DOKKU_HOST -C $CONTAINER_HOSTING_API_KEY dokku builder:set $APP_NAME build-dir src'
 amber exec -- sh -c ''"ssh $SSH_ARGS"' dokku@$DOKKU_HOST -C $CONTAINER_HOSTING_API_KEY dokku builder-dockerfile:set $APP_NAME dockerfile-path Dockerfile'
+
+amber exec -- sh -c ''"
 
 # Set common env settings
 
@@ -190,4 +194,4 @@ amber exec -- sh -c ''"ssh $SSH_ARGS"' dokku@$DOKKU_HOST -C $CONTAINER_HOSTING_A
 # vs the rest (e.g. DOKKU_HOST and CONTAINER_HOSTING_API_KEY which are stored
 # within amber.yaml secrets
 amber exec -v --unmasked -- sh -c 'ssh '"$SSH_ARGS"' dokku@$DOKKU_HOST -C "$CONTAINER_HOSTING_API_KEY dokku certs:add $APP_NAME < cert-key.tar"'
-echo $DOKKU_HOST
+
