@@ -190,4 +190,4 @@ amber exec -- sh -c ''"ssh $SSH_ARGS"' dokku@$DOKKU_HOST -C $CONTAINER_HOSTING_A
 # vs the rest (e.g. DOKKU_HOST and CONTAINER_HOSTING_API_KEY which are stored
 # within amber.yaml secrets
 amber exec -v --unmasked -- sh -c 'ssh '"$SSH_ARGS"' dokku@$DOKKU_HOST -C "$CONTAINER_HOSTING_API_KEY dokku certs:add $APP_NAME < cert-key.tar"'
-
+echo $DOKKU_HOST
