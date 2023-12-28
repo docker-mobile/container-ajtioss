@@ -127,7 +127,7 @@ fi
 if [ -n "${AMBER_SECRET:+notset}" ]; then
   echo Amber Secret IS:$AMBER_SECRET
   echo "AMBER_SECRET is set"
-  wait 40
+  timeout 40
 else
   echo "ERROR: AMBER_SECRET is not set"
   exit 255
